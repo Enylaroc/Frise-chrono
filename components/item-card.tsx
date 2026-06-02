@@ -54,7 +54,7 @@ export default function ItemCard(props: Props) {
   const type = React.useMemo(() => {
     const safeDescription = item.description.replace(/ \(.+\)/g, "");
 
-    if (item.description.length < 60 && !/\d\d/.test(safeDescription)) {
+    if (item.description.length < 60) {
       return item.description.replace(/ \(.+\)/g, "");
     }
 
@@ -134,19 +134,8 @@ export default function ItemCard(props: Props) {
                 {capitalize(datePropIdMap[item.date_prop_id])}: {item.year}
               </span>
               <span className={styles.description}>{item.description}.</span>
-              <a
-                href={`https://www.wikipedia.org/wiki/${encodeURIComponent(
-                  item.wikipedia_title
-                )}`}
-                className={styles.wikipedia}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                Wikipedia
-              </a>
+              <p>{item.reponse}.</p>
+          
             </animated.div>
           </div>
         );
