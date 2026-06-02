@@ -15,7 +15,7 @@ export default function Game() {
 
   React.useEffect(() => {
     const fetchGameData = async () => {
-      const res = await axios.get<string>("/items.json");
+      const res = await axios.get<string>("/Frise-chrono/items.json");
       const items: Item[] = res.data
         .trim()
         .split("\n")
